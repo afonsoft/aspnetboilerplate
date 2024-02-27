@@ -66,7 +66,8 @@ namespace Abp.Runtime.Caching.Memory
             }
             else
             {
-                _memoryCache.Set(key, value, DefaultSlidingExpireTime);
+                cacheOptions.SlidingExpiration = DefaultSlidingExpireTime;
+                _memoryCache.Set(key, value, cacheOptions);
             }
         }
 
